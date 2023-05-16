@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hitButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/instruction"
+        android:text="@string/instructionText"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <TextView
+        android:id="@+id/targetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/target"
+        android:text="@string/target_value"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="@+id/instructionText"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/instructionText"
+        app:layout_constraintTop_toBottomOf="@+id/instructionText"
+        app:layout_constraintVertical_bias="0.357" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/seekbar"
+        android:scrollbarSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/upperLimit"
+        app:layout_constraintStart_toEndOf="@+id/lowerLimit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lowerLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/lower_limit"
+        android:text="@string/_0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/upperLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/upper_limit"
+        android:text="@string/_100"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seekBar"
+        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+
+    <Button
+        android:id="@+id/hitMeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hit_me"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

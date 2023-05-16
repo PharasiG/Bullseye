@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hitButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/bgimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/instructionText"
+        style="@style/instruction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/instruction"
+        android:text="@string/instructionText"
+        android:textColor="#546E7A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/targetTextView"
+        style="@style/big_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/target"
+        android:text="@string/target_value"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="@+id/instructionText"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/instructionText"
+        app:layout_constraintTop_toBottomOf="@+id/instructionText"
+        app:layout_constraintVertical_bias="0.357" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:thumb="@drawable/nub"
+        android:progressDrawable="@drawable/seekbar_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:splitTrack="false"
+        android:contentDescription="@string/seekbar"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:scrollbarSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/upperLimit"
+        app:layout_constraintStart_toEndOf="@+id/lowerLimit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lowerLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/lower_limit"
+        android:text="@string/_0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/upperLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="30dp"
+        android:contentDescription="@string/upper_limit"
+        android:text="@string/_100"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seekBar"
+        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+
+    <Button
+        android:id="@+id/hitMeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/hit_me"
+        android:textSize="24sp"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/startOver"
+        android:background="@drawable/round_button"
+        android:src="@drawable/refresh_30"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scoreGroup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitMeButton"
+        app:layout_constraintVertical_bias="0.607"  />
+
+    <LinearLayout
+        android:id="@+id/scoreGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/startOver"
+        app:layout_constraintEnd_toStartOf="@+id/roundGroup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/startOver"
+        app:layout_constraintTop_toTopOf="@+id/startOver"
+        app:layout_constraintVertical_bias="0.555">
+
+        <TextView
+            android:id="@+id/scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_label"
+            android:textColor="#546E7A" />
+
+        <TextView
+            android:id="@+id/score_count"
+            style="@style/game_stats_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/roundGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/scoreGroup"
+        app:layout_constraintEnd_toStartOf="@+id/infoButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scoreGroup"
+        app:layout_constraintTop_toTopOf="@+id/scoreGroup"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/roundLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/round_label"
+            android:textColor="#546E7A" />
+
+        <TextView
+            android:id="@+id/round_count"
+            style="@style/game_stats_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/infoButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:src="@drawable/info_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/roundGroup"
+        app:layout_constraintTop_toTopOf="@+id/roundGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
